@@ -1,3 +1,94 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: #4f63be;
+}
+
+h1 {
+  font-size: 40px;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+h1,
+h3 {
+  text-align: center;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+}
+#showDialog {
+  padding: 19px;
+  font-size: 22px;
+  border-radius: 10px;
+  margin-top: 30px;
+  background-color: yellowgreen;
+  cursor: pointer;
+}
+
 #displayBooks {
   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 20px;
+}
+
+.book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  padding-bottom: 80px;
+  background-color: #7ec9cb;
+  border-radius: 5px;
+}
+
+#addDialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  padding: 10px;
+}
+
+#addDialog input,
+select {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#addDialog button {
+  margin: 10px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
 }

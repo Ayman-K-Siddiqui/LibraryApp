@@ -21,19 +21,25 @@ function addBookToLibrary(title, author, pages, haveRead) {
 }
 
 // Manual Additions
-// addBookToLibrary("Book", "Author", 290, false);
-// addBookToLibrary("your lie", "william", 280, true);
-// addBookToLibrary("your lie", "william", 280, true);
-// addBookToLibrary("your lie", "william", 280, true);
+addBookToLibrary(
+  "Harry Potter and the Order of the Phoenix",
+  "J. K. Rowling",
+  766,
+  false
+);
+addBookToLibrary("Naruto", "Masashi Kishimoto", 192, true);
+addBookToLibrary("One Piece Vol. 1", "Eiichiro Oda", 216, true);
+
+const display = document.getElementById("displayBooks");
 
 // Displays Books
 function displayLibraryBooks(myLibrary) {
-  const display = document.getElementById("displayBooks");
-
   myLibrary.forEach((element) => {
     const bookDiv = document.createElement("div");
     bookDiv.classList.add("book");
+    bookDiv.style.fontSize = "20px";
     bookDiv.innerHTML = `<p>${element.info()}</p>`;
+    // bookDiv.innerHTML = `<p style="font-size: 20px;">${element.info()}</p>`;
     display.appendChild(bookDiv);
   });
 }
@@ -61,8 +67,14 @@ submitButton.addEventListener("click", (e) => {
   const pages = document.getElementById("pages").value;
   const haveRead = document.getElementById("read").value === "yes";
 
-  console.log(title, author, pages, haveRead);
-  addBookToLibrary(title, author, pages, haveRead);
+  if (isNaN(pages) || pages.trim() === "") {
+    alert("Please enter a valid number for pages.");
+    return;
+  }
+
+  addBookToLibrary(title, author, parseInt(pages, 10), haveRead);
+
+  display.innerHTML = "";
   displayLibraryBooks(myLibrary);
   addDialog.close();
 });
