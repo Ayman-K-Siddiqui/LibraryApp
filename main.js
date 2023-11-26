@@ -13,6 +13,11 @@ function Book(title, author, pages, haveRead) {
       return `${this.title} by ${this.author}, ${this.pages}, No`;
     }
   };
+
+  // Toggles Read Status Protype
+  this.toggleReadStatus = function () {
+    this.haveRead = !this.haveRead;
+  };
 }
 
 function addBookToLibrary(title, author, pages, haveRead) {
@@ -36,14 +41,35 @@ const display = document.getElementById("displayBooks");
 function displayLibraryBooks(myLibrary) {
   myLibrary.forEach((element) => {
     const bookDiv = document.createElement("div");
+    const removeButton = document.createElement("button");
+    const toggleButton = document.createElement("button");
+
+    removeButton.classList.add("removeButton");
+    removeButton.innerHTML = "Remove";
+    removeButton.addEventListener("click", () => {
+      myLibrary.splice(myLibrary.indexOf(element), 1);
+      display.innerHTML = "";
+      displayLibraryBooks(myLibrary);
+    });
+
+    toggleButton.classList.add("toggleButton");
+    toggleButton.innerHTML = `Change State to ${element.haveRead ? "Not Read" : "Read"}`;
+    toggleButton.addEventListener("click", () => {
+      element.toggleReadStatus();
+      display.innerHTML = "";
+      displayLibraryBooks(myLibrary);
+    });
+
     bookDiv.classList.add("book");
     bookDiv.style.fontSize = "20px";
     bookDiv.innerHTML = `<p>${element.info()}</p>`;
-    // bookDiv.innerHTML = `<p style="font-size: 20px;">${element.info()}</p>`;
+
+    bookDiv.appendChild(removeButton);
+    bookDiv.appendChild(toggleButton);
+
     display.appendChild(bookDiv);
   });
 }
-
 displayLibraryBooks(myLibrary);
 
 const showButton = document.getElementById("showDialog");

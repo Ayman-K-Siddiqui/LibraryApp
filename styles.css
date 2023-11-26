@@ -54,6 +54,7 @@ h3 {
   padding-bottom: 80px;
   background-color: #7ec9cb;
   border-radius: 5px;
+  position: relative;
 }
 
 #addDialog {
@@ -91,4 +92,42 @@ select {
   align-items: center;
   justify-content: center;
   margin-top: 20px;
+}
+
+.removeButton {
+  padding: 10px;
+  background-color: rgb(121, 97, 228);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: 40px;
+}
+
+.toggleButton {
+  padding: 10px;
+  background-color: rgb(32, 13, 112);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(167, 176, 242);
+  font-size: 12px;
 }
