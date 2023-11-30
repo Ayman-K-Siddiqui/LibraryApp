@@ -47,13 +47,15 @@ function displayLibraryBooks(myLibrary) {
     removeButton.classList.add("removeButton");
     removeButton.innerHTML = "Remove";
     removeButton.addEventListener("click", () => {
-      myLibrary.splice(myLibrary.indexOf(element), 1);
+      myLibrary.splice(myLibrary.indexOf(element), 1); //Splice syntax: array(index, how many to remove)
       display.innerHTML = "";
       displayLibraryBooks(myLibrary);
     });
 
     toggleButton.classList.add("toggleButton");
-    toggleButton.innerHTML = `Change State to ${element.haveRead ? "Not Read" : "Read"}`;
+    toggleButton.innerHTML = `Change State to ${
+      element.haveRead ? "Not Read" : "Read"
+    }`;
     toggleButton.addEventListener("click", () => {
       element.toggleReadStatus();
       display.innerHTML = "";
@@ -99,8 +101,10 @@ submitButton.addEventListener("click", (e) => {
   }
 
   addBookToLibrary(title, author, parseInt(pages, 10), haveRead);
-
+  // parseInt() converts a string to an integer, the second argument is the radix (base) of the number system to use
   display.innerHTML = "";
   displayLibraryBooks(myLibrary);
   addDialog.close();
 });
+
+// Path: index.html
