@@ -1,0 +1,11 @@
+{
+  "name": "libraryapp2",
+  "version": "1.0.0",
+  "description": "Library App",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayman K. Siddiqui <ayman.siddiqui21gmail.com>",
+  "license": "MIT"
+}
